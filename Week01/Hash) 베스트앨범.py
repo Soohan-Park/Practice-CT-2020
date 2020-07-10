@@ -8,6 +8,7 @@ def solution(genres, plays):
     for genre in setGenres:
         dictionary[genre] = [ 0 for x in range(length + 1)] # 리스트 마지막이 장르별 총 재생횟수
 
+
     # 데이터 정제
     for i in range(length):
         dictionary[genres[i]][i] = plays[i]
