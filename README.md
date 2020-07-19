@@ -8,6 +8,7 @@
 **스택, 큐 :** 6문제  
 **완전탐색 :** 4문제
 ### Week 3
+**동적계획법(DP; Dynamic Programming) :** 7문제
 ### Week 4
 ### Week 5
 ### Week 6
@@ -19,4 +20,4 @@
 ### Week 12
 
 
-**Last Update :** 2020. 07. 10.
+**Last Update :** 2020. 07. 19.
