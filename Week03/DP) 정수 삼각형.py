@@ -1,5 +1,6 @@
 # Solved.
 
+
 def solution(triangle):
     pool = dict().fromkeys(range(len(triangle)), 0)
     pool[0] += triangle[0][0]
@@ -24,6 +25,8 @@ if __name__ == '__main__':
     print(solution([[7], [3, 8], [8, 1, 0], [2, 7, 4, 4], [4, 5, 2, 6, 5]]))
 
 
+
+
 """
 만약 층별로 갯수가 하나씩 증가한다고 가정한다면, (삼각형을 띄고 있다고 하니)
 
@@ -45,5 +48,4 @@ for t in range(len(triangle) - 1): # 가장 마지막은 굳이 순회를 안해
 
 인덱스가 동일한 경우, 값을 비교해서 머지를 해줘야한다
 비교되는 두 값 중 큰 값을 넣어줌.
-
 """

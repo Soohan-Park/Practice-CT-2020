@@ -1,5 +1,6 @@
 # Solved.
 
+
 def solution(N):
     if N == 1: return 4
     if N == 2: return (1 + 2) * 2
