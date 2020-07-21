@@ -1,4 +1,4 @@
-# Test Case 1, 5, 6, 7 이 틀림.
+# Test Case 2, 3, 5번이 틀림.
 
 
 def solution(N, number):
@@ -11,7 +11,7 @@ def solution(N, number):
         for i in range(2, 8):
             tempPool = set()
             for target in pool:
-                for j in range(i - 1):
+                for j in range(0, i-1):
                     comb = combNum[j]
 
                     plus = target + comb
@@ -24,9 +24,8 @@ def solution(N, number):
                     if multi >= 0: tempPool.add(multi)
                     if divid >= 0: tempPool.add(divid)
 
-            if number in tempPool: return i - 1
-            else:
-                pool = tempPool
+                if number in tempPool: return i
+                else: pool = tempPool
 
     return -1
 
