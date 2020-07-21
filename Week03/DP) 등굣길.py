@@ -18,8 +18,7 @@ def solution(m, n, puddles):
             if downTile not in puddles: tempPool.append(downTile)
 
         pool = tempPool
-        if [m, n] in tempPool:
-            break
+        if [m, n] in tempPool: break
 
     return pool.count([m,n]) % 1000000007
 
