@@ -1,6 +1,35 @@
 # Test Case 2, 3, 5번이 틀림.
+# Solved with Solution.
+# https://velog.io/@imacoolgirlyo/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-N%EC%9C%BC%EB%A1%9C-%ED%91%9C%ED%98%84-%ED%8C%8C%EC%9D%B4%EC%8D%AC
+# Comment: 문제 접근 방법에 대해 감을 못 잡았던 것 같다.
+#          참고한 솔루션에서 했던 접근 방법은,
+#          1) 결과로 N 사용횟수를 return 해야하므로 N 사용 횟수에 따라 집합을 만들고 만들 수 있는 숫자들을 저장(총 8단계까지만 확인하면 되니)
+#          2) 다음 단계(각 단계는 N의 사용 횟수)로 넘어가기 전, 집합 속 number가 있다면 해당 단계를 return.
+#          3) N =3 일 때, N=1, 2와 N=2,1 은 중복이므로 가능 케이스의 절반까지만 확인하면 된다.
+
+def solution(N, number):
+    S = [0, {N}]
+    for i in range(2, 9):
+        case_set = {int(str(N)*i)}
+        for i_half in range(1, i//2+1):  # S[i_half] S[1]
+            for x in S[i_half]:
+                for y in S[i-i_half]:
+                    case_set.add(x+y)
+                    case_set.add(x-y)
+                    case_set.add(y-x) # y-x 케이스 추가
+                    case_set.add(x*y)
+                    if x != 0:
+                        case_set.add(y//x)
+                    if y != 0:
+                        case_set.add(x//y)
+        if number in case_set:
+            return i
+        S.append(case_set)
+
+    return -1
 
 
+"""
 def solution(N, number):
     if N == number: return 1
     else:
@@ -34,30 +63,4 @@ if __name__ == '__main__':
     print(solution(5, 12))
     print(solution(2, 11))
     print(solution(5, 31168))
-
-
-"""
-최대 N은 8개까지만 사용 가능
-
-N이 number랑 같으면 return 1
-
-combNum = [5, 55, 555 ... 5555555(7개)] 까지 미리 수를 만들어 두고
-
-pool = [ N ] 중복 없애기 위해 SET 사용?
-
-N을 2개 사용했을때부터 8개 사용했을 때까지 반복 (인덱스가 사용한 갯수)
-	pool에서 하나 꺼내와서 그걸 가지고 combNum에서 하나씩 가져와서
-	반복하여 사칙연산 수행.
-	comb = combNum( i - 1 - 1 )
-	for target in pool:
-		+ =>  target + comb
-		-  =>  target - comb
-		*  =>  target * comb
-		/  =>  target / comb
-		각각 결과 값을 담아서 만든 리스트를 만듬
-	
-	리스트 안에 number가 있는지 확인 -> 있다면, return i
-
-return -1	
-
 """
