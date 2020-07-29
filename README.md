@@ -10,6 +10,9 @@
 ### Week 3
 **동적계획법(DP; Dynamic Programming) :** 7문제
 ### Week 4
+**깊이/너부 우선 탐색(DFS/BFS) :** 4문제  
+**정렬 :** 3문제  
+**이분탐색 :** 3문제
 ### Week 5
 ### Week 6
 ### Week 7
@@ -20,4 +23,4 @@
 ### Week 12
 
 
-**Last Update :** 2020. 07. 19.
+**Last Update :** 2020. 07. 29.
