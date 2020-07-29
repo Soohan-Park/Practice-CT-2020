@@ -1,4 +1,5 @@
-# 흠..
+# 짝수/홀수로 나누어 다시 한 번 생각해보기
+
 
 def solution(money:list):
     answer = 0
