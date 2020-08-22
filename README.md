@@ -15,13 +15,15 @@
 ### Week 5  
 **이분탐색 :** 2문제  
 (Programmers 문제 수가 바뀐듯 함.)  
-### Week 6
+### Week 6  
+**탐욕법 :** 6문제  
 ### Week 7
 ### Week 8
 ### Week 9
 ### Week 10
 ### Week 11
 ### Week 12
+` `  
+` `  
+> **Last Update :** 2020. 08. 22.
 
-
-**Last Update :** 2020. 07. 29.
