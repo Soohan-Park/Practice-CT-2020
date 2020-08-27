@@ -1,16 +1,17 @@
-def solution(participant, completion):
-    answer = ''
+# Solved.
 
+
+def solution(participant, completion):
     participant.sort()
     completion.sort()
 
-    for c in completion:
-        for p in participant:
-            if c == p:
-                participant.remove(p)
-                break
-            else:
-                pass
-    answer = participant.pop()
+    for i in range(len(completion)):
+        if participant[i] != completion[i]:
+            return participant[i]
 
-    return answer
+    return participant[-1]
+
+
+if __name__ == '__main__':
+    print(solution(['leo', 'kiki', 'eden'], ['eden', 'kiki']))
+    print(solution(['mislav', 'stanko', 'mislav', 'ana'], ['stanko', 'ana', 'mislav']))
