@@ -18,6 +18,7 @@
 ### Week 6  
 **탐욕법 :** 6문제  
 ### Week 7
+**KAKAO BLIND RECRUITMENT 섹션 추가 (해당 섹션 우선적으로 수행)**
 ### Week 8
 ### Week 9
 ### Week 10
@@ -25,5 +26,5 @@
 ### Week 12
 ` `  
 ` `  
-> **Last Update :** 2020. 08. 22.
+> **Last Update :** 2020. 08. 28.
 
