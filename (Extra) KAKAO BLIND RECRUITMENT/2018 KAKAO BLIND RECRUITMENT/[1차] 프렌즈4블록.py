@@ -1,47 +1,51 @@
-# Almost Done. Maybe...
+# Solved. But not make up yet.
 
 
 def solution(m, n, board):
     answer = 0
+
+    boardT = [ "" for x in range(n) ]
+    for j in range(n):
+        for i in range(m):
+            boardT[j] += board[i][j]
 
     while True:
         pool = set()
 
         for x in range(m-1):  # 0 ~ m-1까지 탐색 (행)
             for y in range(n-1):  # 0 ~ n-1까지 탐색 (열)
-                target = board[x][y]  # boardT는 열, 행
+                target = boardT[y][x]  # boardT는 열, 행
 
                 if target == '0':
                     continue
 
-                if target != board[x][y+1]:  # 오른쪽
+                if target != boardT[y][x+1]:  # 오른쪽
                     continue
-                elif target != board[x+1][y]:  # 아래
+                elif target != boardT[y+1][x]:  # 아래
                     continue
-                elif target != board[x+1][y+1]:  # 대각선
+                elif target != boardT[y+1][x+1]:  # 대각선
                     continue
                 else:
-                    pool.add((x, y))
-                    pool.add((x, y+1))
-                    pool.add((x+1, y))
-                    pool.add((x+1, y+1))
+                    pool.add((y, x))
+                    pool.add((y, x+1))
+                    pool.add((y+1, x))
+                    pool.add((y+1, x+1))
 
         thisRoundCnt = len(pool)
         for p in pool:
-            X = p[0]
-            Y = p[1]
-            board[X] = board[X][:Y] + '0' + board[X][Y+1:]
+            Y = p[0]
+            X = p[1]
+            boardT[Y] = boardT[Y][:X] + '0' + boardT[Y][X+1:]
 
-        print(board)
+        # print(boardT)
 
+        for j in range(n):
+            boardT[j] = boardT[j].replace('0', '', -1)
 
-        for i in range(m):
-            board[i] = board[i].replace('0', '', -1)
+            if len(boardT[j]) != m:
+                boardT[j] = '0' * (m - len(boardT[j])) + boardT[j]
 
-            if len(board[i]) != n:
-                board[i] = '0' * (n - len(board[i])) + board[i]
-
-        print(board)
+        # print(boardT)
 
 
         if thisRoundCnt != 0:
@@ -54,6 +58,7 @@ def solution(m, n, board):
 
 
 if __name__ == '__main__':
+    print(solution(4, 5, ["CCBDE", "AAADE", "AAABF", "CCBBF"]))
     print(solution(6, 6, ["TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"]))
 
 
