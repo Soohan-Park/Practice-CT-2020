@@ -1,6 +1,60 @@
+# Almost Done. Maybe...
+
+
 def solution(m, n, board):
     answer = 0
+
+    while True:
+        pool = set()
+
+        for x in range(m-1):  # 0 ~ m-1까지 탐색 (행)
+            for y in range(n-1):  # 0 ~ n-1까지 탐색 (열)
+                target = board[x][y]  # boardT는 열, 행
+
+                if target == '0':
+                    continue
+
+                if target != board[x][y+1]:  # 오른쪽
+                    continue
+                elif target != board[x+1][y]:  # 아래
+                    continue
+                elif target != board[x+1][y+1]:  # 대각선
+                    continue
+                else:
+                    pool.add((x, y))
+                    pool.add((x, y+1))
+                    pool.add((x+1, y))
+                    pool.add((x+1, y+1))
+
+        thisRoundCnt = len(pool)
+        for p in pool:
+            X = p[0]
+            Y = p[1]
+            board[X] = board[X][:Y] + '0' + board[X][Y+1:]
+
+        print(board)
+
+
+        for i in range(m):
+            board[i] = board[i].replace('0', '', -1)
+
+            if len(board[i]) != n:
+                board[i] = '0' * (n - len(board[i])) + board[i]
+
+        print(board)
+
+
+        if thisRoundCnt != 0:
+            answer += thisRoundCnt
+            thisRoundCnt = 0
+        else:
+            break
+
     return answer
+
+
+if __name__ == '__main__':
+    print(solution(6, 6, ["TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"]))
 
 
 """
@@ -10,8 +64,7 @@ board 탐색을 반복하면서, 한 싸이클에 없앨 수 있는 블록 찾�
 (0,0)에서 (m-1,n-1)까지 탐색
 탐색하는 블록에 오른쪽, 아래, 대각선 오른쪽 아래가 전부 같은 글자인지 판단!
 (만약 탐색 대상중에 다른글자가 나오면 패스)
-(만약 탐색 대상중에 '0'이 있다면 바로 패스)
-    모두 같은 글자면, 해당 좌표값들 리스트에 저장
+    모두 같은 글자면, 해당 좌표값들 set에 저장 (바로 0으로 치환해버리면, 중복될 경우 찾을 수가 없음)
     아니라면, 패스
 
 한 사이클을 돈 후, 해당 좌표값들에 해당하는 갯수만큼 카운트(중복 제외!)
@@ -25,5 +78,17 @@ ex. T T 0 C F 0 M  ->  T T C F M 0 0
 빈 공간은 '0' 처리 (탐색때도 '0'은 처리 안하도록!)
 
 위 반복하면서 한 사이클에 지워지는게 없으면 끝!
+
+
+while True:
+    thisRoundCnt = 0
+    
+    ...
+    
+    if thisRoundCnt:
+        answer += thisRoundCnt
+        thisRoundCnt = 0
+    else:
+        break
 
 """
