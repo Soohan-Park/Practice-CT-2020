@@ -49,3 +49,8 @@ def solution(tickets):
     g.dfs()
 
     return g.print()
+
+
+if __name__ == '__main__':
+    # print(solution([['ICN', 'JFK'], ['HND', 'IAD'], ['JFK', 'HND']]))
+    print(solution([['ICN', 'SFO'], ['ICN', 'ATL'], ['SFO', 'ATL'], ['ATL', 'ICN'], ['ATL', 'SFO']]))
