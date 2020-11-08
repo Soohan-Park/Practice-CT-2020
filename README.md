@@ -53,13 +53,9 @@
 
 ### Week 11  
 **구현**  
-(1) Combination 구현  
+~~(1) Combination 구현~~  
+##### [Implementation Repos.](https://github.com/Soohan-Park/Implementation) 로 이동!  
 (2) 대칭수 구현  
-
-
-### Week 12
-**구현**  
-(0) 구현해볼 것들 리스트 있는 README 업로드.  
 
 
 <br/>
